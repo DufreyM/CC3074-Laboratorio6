@@ -76,3 +76,19 @@ y_cls = df["precio_cat"]
 X_cls_train, X_cls_test, y_cls_train, y_cls_test = train_test_split(
     X_cls, y_cls, test_size=0.2, random_state=42, stratify=y_cls
 )
+
+# ACTIVIDAD 1 — KNN REGRESIÓN
+print("\n" + "="*60)
+print("ACTIVIDAD 1 — KNN REGRESIÓN")
+print("="*60)
+
+pipeline_knn_reg = Pipeline([
+    ("scaler", StandardScaler()),
+    ("knn", KNeighborsRegressor(n_neighbors=5))
+])
+
+t0 = time.time()
+pipeline_knn_reg.fit(X_train, y_train)
+tiempo_knn = time.time() - t0
+
+y_pred_knn = pipeline_knn_reg.predict(X_test)
