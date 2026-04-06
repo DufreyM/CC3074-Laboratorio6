@@ -1,0 +1,8 @@
+El modelo de regresión KNN obtuvo un RMSE de 123.19 y un MAE de 80.72, lo que indica que el error promedio en la predicción del precio es de aproximadamente 80 unidades monetarias.
+El coeficiente de determinación R² fue de 0.53, lo cual sugiere que el modelo logra explicar alrededor del 53% de la variabilidad en los precios.
+En general, el modelo presenta un desempeño moderado, siendo capaz de capturar patrones en los datos, aunque aún presenta errores significativos en la predicción.
+
+El modelo de clasificación KNN obtuvo un accuracy de 64.12%, lo que indica que clasifica correctamente aproximadamente 64 de cada 100 observaciones.
+Se observa que el modelo tiene mejor desempeño en las clases "Cara" y "Económica", con valores de F1-score cercanos a 0.70.
+Sin embargo, el rendimiento en la clase "Intermedia" es considerablemente menor (F1-score de 0.50), lo que sugiere que el modelo presenta dificultades para distinguir correctamente esta categoría.
+Esto puede deberse a que dicha clase se encuentra en un rango intermedio de valores, lo que genera mayor solapamiento entre clases.
