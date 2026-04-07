@@ -92,3 +92,17 @@ pipeline_knn_reg.fit(X_train, y_train)
 tiempo_knn = time.time() - t0
 
 y_pred_knn = pipeline_knn_reg.predict(X_test)
+
+# ACTIVIDAD 2 — EVALUACIÓN REGRESIÓN
+print("\n" + "="*60)
+print("ACTIVIDAD 2 — EVALUACIÓN REGRESIÓN")
+print("="*60)
+
+rmse = np.sqrt(mean_squared_error(y_test, y_pred_knn))
+mae = mean_absolute_error(y_test, y_pred_knn)
+r2 = r2_score(y_test, y_pred_knn)
+
+print(f"RMSE: {rmse:.4f}")
+print(f"MAE : {mae:.4f}")
+print(f"R2  : {r2:.4f}")
+print(f"Tiempo: {tiempo_knn:.4f}s")
