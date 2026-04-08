@@ -106,3 +106,34 @@ print(f"RMSE: {rmse:.4f}")
 print(f"MAE : {mae:.4f}")
 print(f"R2  : {r2:.4f}")
 print(f"Tiempo: {tiempo_knn:.4f}s")
+
+# ACTIVIDAD 3 — COMPARACIÓN
+print("\n" + "="*60)
+print("ACTIVIDAD 3 — COMPARACIÓN")
+print("="*60)
+
+comp = pd.DataFrame({
+    "Modelo": [
+        "Regresión Lineal (Ridge)",
+        "Árbol Regresión",
+        "Random Forest",
+        "Naive Bayes",
+        "KNN"
+    ],
+    "RMSE": [
+        138.04,
+        122.66,
+        105.10,
+        556.50,
+        rmse
+    ],
+    "R2": [
+        0.4127,
+        0.5363,
+        0.6595,
+        -8.545,
+        r2
+    ]
+})
+
+print(comp)
