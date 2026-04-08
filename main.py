@@ -178,3 +178,27 @@ plt.ylabel("Precio predicho")
 plt.title("KNN Regresión")
 plt.tight_layout()
 plt.show()
+
+# ACTIVIDAD 5 — EVALUACIÓN CLASIFICACIÓN
+print("\n" + "="*60)
+print("ACTIVIDAD 5 — EVALUACIÓN CLASIFICACIÓN")
+print("="*60)
+
+acc = accuracy_score(y_cls_test, y_pred_cls)
+
+print(f"Accuracy: {acc:.4f} ({acc*100:.2f}%)")
+print(f"Tiempo: {tiempo_knn_cls:.4f}s")
+
+print("\nReporte de clasificación:")
+print(classification_report(y_cls_test, y_pred_cls))
+
+# GRÁFICA — REGRESIÓN
+plt.figure(figsize=(8, 5))
+plt.scatter(y_test, y_pred_knn, alpha=0.3)
+plt.plot([y_test.min(), y_test.max()],
+         [y_test.min(), y_test.max()], 'r--')
+plt.xlabel("Precio real")
+plt.ylabel("Precio predicho")
+plt.title("KNN Regresión")
+plt.tight_layout()
+plt.show()
