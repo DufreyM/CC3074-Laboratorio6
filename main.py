@@ -202,3 +202,21 @@ plt.ylabel("Precio predicho")
 plt.title("KNN Regresión")
 plt.tight_layout()
 plt.show()
+
+# ACTIVIDAD 6 — MATRIZ DE CONFUSIÓN
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+
+print("\n" + "="*60)
+print("ACTIVIDAD 6 — MATRIZ DE CONFUSIÓN")
+print("="*60)
+
+labels = ["Economica", "Intermedia", "Cara"]
+cm = confusion_matrix(y_cls_test, y_pred_cls, labels=labels)
+
+print("\nMatriz de confusión:")
+print(pd.DataFrame(cm, index=labels, columns=labels))
+
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
+disp.plot(cmap="Blues")
+plt.title("Matriz de Confusión — KNN")
+plt.show()
