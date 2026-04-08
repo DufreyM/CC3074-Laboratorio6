@@ -137,3 +137,20 @@ comp = pd.DataFrame({
 })
 
 print(comp)
+
+# ACTIVIDAD 4 — KNN CLASIFICACIÓN
+
+print("\n" + "="*60)
+print("ACTIVIDAD 4 — KNN CLASIFICACIÓN")
+print("="*60)
+
+pipeline_knn_cls = Pipeline([
+    ("scaler", StandardScaler()),
+    ("knn", KNeighborsClassifier(n_neighbors=5))
+])
+
+t0 = time.time()
+pipeline_knn_cls.fit(X_cls_train, y_cls_train)
+tiempo_knn_cls = time.time() - t0
+
+y_pred_cls = pipeline_knn_cls.predict(X_cls_test)
