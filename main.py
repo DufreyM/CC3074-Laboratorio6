@@ -220,3 +220,15 @@ disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
 disp.plot(cmap="Blues")
 plt.title("Matriz de Confusión — KNN")
 plt.show()
+
+# ACTIVIDAD 7 — SOBREAJUSTE
+print("\n" + "="*60)
+print("ACTIVIDAD 7 — SOBREAJUSTE")
+print("="*60)
+
+acc_train = accuracy_score(y_cls_train, pipeline_knn_cls.predict(X_cls_train))
+
+print(f"Accuracy entrenamiento: {acc_train:.4f}")
+print(f"Accuracy prueba:        {acc:.4f}")
+print(f"Diferencia:             {acc_train - acc:+.4f}")
+
