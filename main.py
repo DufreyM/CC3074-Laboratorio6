@@ -286,3 +286,41 @@ acc_tuned = accuracy_score(y_cls_test, y_pred_tuned)
 print(f"Accuracy base:  {acc:.4f}")
 print(f"Accuracy tuned: {acc_tuned:.4f}")
 print(f"Mejora: {acc_tuned - acc:+.4f}")
+
+
+# ACTIVIDAD 10 — MÉTRICA DE DISTANCIA
+print("\n" + "="*60)
+print("ACTIVIDAD 10 — MÉTRICA DE DISTANCIA")
+print("="*60)
+
+print("p=1 → distancia Manhattan")
+print("p=2 → distancia Euclidiana")
+print("Mejor p encontrado:", grid.best_params_["knn__p"])
+
+# ACTIVIDAD 11 — COMPARACIÓN FINAL CLASIFICACIÓN
+print("\n" + "="*60)
+print("ACTIVIDAD 11 — COMPARACIÓN FINAL")
+print("="*60)
+
+comp_final = pd.DataFrame({
+    "Modelo": [
+        "Árbol de decisión",
+        "Random Forest",
+        "Naive Bayes",
+        "KNN base",
+        "KNN tuned"
+    ],
+    "Accuracy": [
+        0.6956,   # de tu lab 5
+        0.7091,   # de tu lab 5
+        0.5354,   # NB 
+        acc,
+        acc_tuned
+    ]
+})
+
+print(comp_final)
+
+print("\nMejor modelo:", comp_final.loc[comp_final["Accuracy"].idxmax(), "Modelo"])
+
+
