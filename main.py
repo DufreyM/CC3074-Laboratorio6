@@ -232,3 +232,21 @@ print(f"Accuracy entrenamiento: {acc_train:.4f}")
 print(f"Accuracy prueba:        {acc:.4f}")
 print(f"Diferencia:             {acc_train - acc:+.4f}")
 
+# ACTIVIDAD 8 — VALIDACIÓN CRUZADA
+from sklearn.model_selection import cross_val_score, StratifiedKFold
+
+print("\n" + "="*60)
+print("ACTIVIDAD 8 — VALIDACIÓN CRUZADA")
+print("="*60)
+
+cv_scores = cross_val_score(
+    pipeline_knn_cls,
+    X_cls_train,
+    y_cls_train,
+    cv=StratifiedKFold(n_splits=5, shuffle=True, random_state=42),
+    scoring="accuracy"
+)
+
+print("Accuracy por fold:", np.round(cv_scores, 4))
+print(f"Accuracy promedio: {cv_scores.mean():.4f}")
+print(f"Desviación estándar: {cv_scores.std():.4f}")
