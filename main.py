@@ -250,3 +250,39 @@ cv_scores = cross_val_score(
 print("Accuracy por fold:", np.round(cv_scores, 4))
 print(f"Accuracy promedio: {cv_scores.mean():.4f}")
 print(f"Desviación estándar: {cv_scores.std():.4f}")
+
+
+# ACTIVIDAD 9 — TUNEO DE HIPERPARÁMETROS
+from sklearn.model_selection import GridSearchCV
+
+print("\n" + "="*60)
+print("ACTIVIDAD 9 — TUNEO KNN")
+print("="*60)
+
+param_grid = {
+    "knn__n_neighbors": [3, 5, 7, 9],
+    "knn__weights": ["uniform", "distance"],
+    "knn__p": [1, 2] 
+}
+
+grid = GridSearchCV(
+    pipeline_knn_cls,
+    param_grid,
+    cv=3,
+    scoring="accuracy",
+    n_jobs=-1
+)
+
+grid.fit(X_cls_train, y_cls_train)
+
+print("Mejores parámetros:", grid.best_params_)
+print(f"Mejor accuracy CV: {grid.best_score_:.4f}")
+
+best_model = grid.best_estimator_
+y_pred_tuned = best_model.predict(X_cls_test)
+
+acc_tuned = accuracy_score(y_cls_test, y_pred_tuned)
+
+print(f"Accuracy base:  {acc:.4f}")
+print(f"Accuracy tuned: {acc_tuned:.4f}")
+print(f"Mejora: {acc_tuned - acc:+.4f}")
